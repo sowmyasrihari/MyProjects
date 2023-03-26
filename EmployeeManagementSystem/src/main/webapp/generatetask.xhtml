@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Hod Home</title>
+  </h:head>
+    
+  <h:body>
+    
+    <h:messages globalOnly="true" />
+    <center>
+    <h1 style="color:green">Hod home</h1>
+    <hr/>
+   
+      <h:form>
+        <h:panelGrid columns="3">
+        
+          <h:outputLabel style="color:black">Employee Id</h:outputLabel>
+          <h:inputText value="#{taskBean.taskid}" id="id" />
+          <br/>
+          <h:outputLabel style="color:black">Task Name</h:outputLabel>
+          <h:inputText value="#{taskBean.taskname}" id="name" />
+          <br/>    
+          <h:outputLabel style="color:black">Task Progress</h:outputLabel>
+          <h:inputText value="#{taskBean.taskprogress}" id="dept" />
+          <br/>   
+          <h:outputLabel style="color:black">Task Status</h:outputLabel>
+          <h:inputText value="#{taskBean.taskstatus}" id="salary" />
+          <br/>    
+          
+          <h:commandButton styleClass="button button5"  value="Insert" action="#{taskBean.inserttask()}"/>
+          
+        </h:panelGrid>
+      </h:form>
+      </center>
+    <br/>
+    <h:outputText style="color:red" value="#{taskBean.response}"></h:outputText>
+    
+    <br/>
+    <h3>View All Tasks</h3>
+    <hr/>
+    <h3 align="center">View All Tasks</h3>
+    
+    
+    <h:dataTable value="#{taskBean.tasklist}" var="row">
+
+    <h:column>
+        <f:facet name="header">Task ID</f:facet>
+           #{row.taskid}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Task Name</f:facet>
+           #{row.taskname}
+    </h:column>
+    <h:column>
+        <f:facet name="header">Task Progress</f:facet>
+           #{row.taskprogress}
+    </h:column>
+     <h:column>
+        <f:facet name="header">Task Status</f:facet>
+           #{row.taskstatus}
+    </h:column>
+      
+    </h:dataTable>
+    
+    
+   
+  </h:body>
+</html>
+
+   
